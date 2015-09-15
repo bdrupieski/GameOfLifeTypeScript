@@ -9,7 +9,6 @@ class GameOfLife {
         new Offset(-1, 0),                    new Offset(1, 0),
         new Offset(-1, 1),  new Offset(0, +1), new Offset(1, 1),
     ];
-    private nextFrameFunction: Function;
 
     constructor() {
         this.canvas = <HTMLCanvasElement>document.getElementById('board');
