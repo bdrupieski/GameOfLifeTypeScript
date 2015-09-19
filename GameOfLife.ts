@@ -6,7 +6,7 @@ class GameOfLife {
     private boardHeight: number;
     private directionOffsets: Offset[] = [
         new Offset(-1, -1), new Offset(0, -1), new Offset(1, -1),
-        new Offset(-1, 0),                    new Offset(1, 0),
+        new Offset(-1, 0),                     new Offset(1, 0),
         new Offset(-1, 1),  new Offset(0, +1), new Offset(1, 1),
     ];
 
@@ -126,9 +126,14 @@ class GameOfLife {
             "0000000000000000000001000001000000000000000000000",
         ];
 
+        var fillerHeight = spaceFiller.length;
+        var fillerWidth = spaceFiller[0].length;
+        var startingY = Math.floor((this.boardHeight / 2) - (fillerHeight / 2));
+        var startingX = Math.floor((this.boardWidth / 2) - (fillerWidth / 2));
+
         for (var y = 0; y < spaceFiller.length; y++) {
             for (var x = 0; x < spaceFiller[y].length; x++) {
-                this.board[y + (this.boardHeight / 2)][x + (this.boardWidth / 2)] = spaceFiller[y][x] == "1";
+                this.board[startingY + y][startingX + x] = spaceFiller[y][x] == "1";
             }
         }
     }
